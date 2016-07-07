@@ -1,8 +1,13 @@
 {
   angular.module('meganote.signUp')
-    .directive('signUp', signUp);
+    .directive('signUp', () => {
+      return {
+        scope: {
 
-  function signUp() {
+        },
+        templateUrl: '/sign-up/sign-up.html',
 
-  }
+      };
+    });
+
 }
