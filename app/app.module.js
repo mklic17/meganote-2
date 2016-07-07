@@ -5,7 +5,8 @@
     'textAngular',
     'meganote.notes',
     'meganote.notesForm',
-    'meganote.signUp'
+    'meganote.signUp',
+    'meganote.users'
   ])
   .config(config);
 
