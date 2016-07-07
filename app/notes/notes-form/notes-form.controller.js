@@ -43,10 +43,9 @@
 
     function destroy() {
       NotesService.destroy(vm.note)
-        .then(function() {
-          vm.clearForm();
-        });
+        .then(
+          () => vm.clearForm()
+        );
     }
   }
-
 }
