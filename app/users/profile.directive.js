@@ -1,15 +1,17 @@
 {
   angular.module('meganote.users')
     .directive('userProfile', [
-      'CurrentUser'
-      (CurrentUser) => {
+      'CurrentUser',
+      'UsersService'
+      (CurrentUser, UsersService) => {
         class UserProfileController {
           constructor() {
             var vm = this;
             vm.user = angular.copy(CurrentUser.get()); // do this so you do not update in real time
           }
           submit() {
-
+            var vm = this;
+            UsersService.update(vm.user);
           }
         }
         return {
