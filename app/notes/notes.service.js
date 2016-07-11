@@ -4,7 +4,7 @@
 
   NotesService.$inject = ['$http', 'API_BASE'];
   function NotesService($http, API_BASE) {
-    const apiUri = `${API_BASE}notes/`;
+    const apiURI = `${API_BASE}notes/`;
 
     const service = {
       notes: [],
@@ -13,15 +13,16 @@
       update: update,
       destroy: destroy,
       removeById: removeById,
-      find: find
+      find: find,
     };
 
     return service;
 
-    ////////////////////////
+    //////////////////////
 
     function getNotes() {
-      const notesPromise = $http.get(apiUri);
+      const notesPromise = $http.get(apiURI);
+
       notesPromise
         .then(res => service.notes = res.data);
 
@@ -29,31 +30,36 @@
     }
 
     function create(note) {
-      const notesPromise = $http.post(apiUri, {
+      const notesPromise = $http.post(apiURI, {
         note: note
       });
 
-      notesPromise.then(res => service.notes.unshift(res.data.note));
+      notesPromise
+        .then(res => service.notes.unshift(res.data.note));
 
       return notesPromise;
     }
 
     function update(note) {
-      const notesPromise = $http.put(`${apiUri}${note._id}`, {
+      const notesPromise = $http.put(`${apiURI}${note._id}`, {
         note: note
       });
 
-      notesPromise.then(res => {
-        service.removeById(res.data.note._id);
-        service.notes.unshift(res.data.note);
-      });
+      notesPromise
+        .then(res => {
+          service.removeById(res.data.note._id);
+          service.notes.unshift(res.data.note);
+        });
 
       return notesPromise;
     }
 
     function destroy(note) {
-      const notesPromise = $http.delete(`${apiUri}${note._id}`);
-      notesPromise.then(res => service.removeById(res.data.note._id));
+      const notesPromise = $http.delete(`${apiURI}${note._id}`);
+
+      notesPromise
+        .then(res => service.removeById(res.data.note._id));
+
       return notesPromise;
     }
 

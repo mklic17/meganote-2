@@ -1,10 +1,8 @@
 {
-  angular
-    .module('meganote.notes')
+  angular.module('meganote.notes')
     .config(notesConfig);
 
   notesConfig.$inject = ['$stateProvider'];
-
   function notesConfig($stateProvider) {
     $stateProvider
 
@@ -30,5 +28,4 @@
   function notesLoaded(NotesService) {
     return NotesService.getNotes();
   }
-  
 }

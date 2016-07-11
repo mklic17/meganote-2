@@ -1,33 +1,32 @@
 {
-  angular.module('meganotes.users')
-    .service('UserService', [
-      'AuthToken',
+  angular.module('meganote.users')
+    .service('UsersService', [
       '$http',
       'API_BASE',
-      (AuthToken, $http, API_BASE) => {
+      'AuthToken',
+      'CurrentUser',
+      ($http, API_BASE, AuthToken, CurrentUser) => {
 
-        const apiUri = `${API_BASE}users/`;
+        const apiURI = `${API_BASE}users/`;
 
         class UsersService {
 
           // Sign Up
-          create(user){
-            return $http.post(`${apiUri}users`, {
-              user, // equivalent to user: user
-
+          create(user) {
+            return $http.post(apiURI, {
+              user,
             })
               .then(
                 res => {
                   AuthToken.set(res.data.authToken);
+                  CurrentUser.set(res.data.user);
                 }
               );
           }
+
         }
         return new UsersService();
 
       }
     ]);
-
-
-
 }

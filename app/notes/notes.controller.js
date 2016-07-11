@@ -1,6 +1,5 @@
 {
-  angular
-    .module('meganote.notes')
+  angular.module('meganote.notes')
     .controller('NotesController', NotesController);
 
   NotesController.$inject = ['$scope', 'NotesService'];

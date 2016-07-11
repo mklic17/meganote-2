@@ -8,12 +8,10 @@
     'meganote.signUp',
     'meganote.users'
   ])
-  .config(config);
+    .config(config);
 
   config.$inject = ['$urlRouterProvider'];
-
   function config($urlRouterProvider) {
     $urlRouterProvider.otherwise('/notes/');
   }
-
 }

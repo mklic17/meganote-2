@@ -1,5 +1,4 @@
 {
-
   angular.module('meganote.notesForm')
     .controller('NotesFormController', NotesFormController);
 
