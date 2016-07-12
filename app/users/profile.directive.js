@@ -2,7 +2,7 @@
   angular.module('meganote.users')
     .directive('userProfile', [
       'CurrentUser',
-      'UsersService'
+      'UsersService',
       (CurrentUser, UsersService) => {
         class UserProfileController {
           constructor() {

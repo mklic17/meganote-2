@@ -3,7 +3,7 @@
     .directive('userLinks', [
 
       'CurrentUser',
-      'AuthToken'
+      'AuthToken',
       (CurrentUser, AuthToken) => {
 
         class UserLinksController {

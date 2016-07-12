@@ -3,7 +3,7 @@
     .directive('signUp', [
 
       'UsersService',
-      '$state'
+      '$state',
       (UsersService, $state) => {
 
         class SignUpController {
@@ -13,8 +13,8 @@
           submit() {
             UsersService.create(this.user)
               .then(
-                () => $state.go('notes.form', {noteId: undefined})
-              )
+                () => $state.go('notes.form', { noteId: undefined })
+              );
           }
         }
 

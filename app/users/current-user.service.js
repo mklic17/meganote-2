@@ -17,9 +17,11 @@
           this.user = undefined;
           $window.localStorage.removeItem('currentUser');
         }
+        signedIn() {
+          return !!this.get()._id;
+        }
       }
       return new CurrentUser();
 
     }]);
-}
 }

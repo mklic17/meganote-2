@@ -32,7 +32,7 @@
           }
           // Sign In
           login(user) {
-            return $http.post(`${API_BASE}${sessions}`, {
+            return $http.post(`${API_BASE}sessions`, {
               user
             })
               .then(
